@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "KKtw8JG2n5m8didmB1TjKfopOc5ZiqxNOcfKZ6JDAHX0dmawAFla153LdAyJi7tItyFXlDCcTVaorgbasUR4sg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\ms\\source\\repos\\2do_Parcial_Labo_Seif.Mariano_2D_2doCuatri_2020\\Entidades\\Entidades.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ms\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\ms\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

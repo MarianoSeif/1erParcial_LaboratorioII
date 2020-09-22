@@ -1,0 +1,14 @@
+C:\Users\ms\source\repos\2do_Parcial_Labo_Seif.Mariano_2D_2doCuatri_2020\FormMain\bin\Debug\FormMain.exe.config
+C:\Users\ms\source\repos\2do_Parcial_Labo_Seif.Mariano_2D_2doCuatri_2020\FormMain\bin\Debug\FormMain.exe
+C:\Users\ms\source\repos\2do_Parcial_Labo_Seif.Mariano_2D_2doCuatri_2020\FormMain\bin\Debug\FormMain.pdb
+C:\Users\ms\source\repos\2do_Parcial_Labo_Seif.Mariano_2D_2doCuatri_2020\FormMain\bin\Debug\Entidades.dll
+C:\Users\ms\source\repos\2do_Parcial_Labo_Seif.Mariano_2D_2doCuatri_2020\FormMain\bin\Debug\Entidades.pdb
+C:\Users\ms\source\repos\2do_Parcial_Labo_Seif.Mariano_2D_2doCuatri_2020\FormMain\obj\Debug\Forms.csprojAssemblyReference.cache
+C:\Users\ms\source\repos\2do_Parcial_Labo_Seif.Mariano_2D_2doCuatri_2020\FormMain\obj\Debug\FormMain.FormMain.resources
+C:\Users\ms\source\repos\2do_Parcial_Labo_Seif.Mariano_2D_2doCuatri_2020\FormMain\obj\Debug\FormMain.FormProducto.resources
+C:\Users\ms\source\repos\2do_Parcial_Labo_Seif.Mariano_2D_2doCuatri_2020\FormMain\obj\Debug\FormMain.Properties.Resources.resources
+C:\Users\ms\source\repos\2do_Parcial_Labo_Seif.Mariano_2D_2doCuatri_2020\FormMain\obj\Debug\Forms.csproj.GenerateResource.cache
+C:\Users\ms\source\repos\2do_Parcial_Labo_Seif.Mariano_2D_2doCuatri_2020\FormMain\obj\Debug\Forms.csproj.CoreCompileInputs.cache
+C:\Users\ms\source\repos\2do_Parcial_Labo_Seif.Mariano_2D_2doCuatri_2020\FormMain\obj\Debug\Forms.csproj.CopyComplete
+C:\Users\ms\source\repos\2do_Parcial_Labo_Seif.Mariano_2D_2doCuatri_2020\FormMain\obj\Debug\FormMain.exe
+C:\Users\ms\source\repos\2do_Parcial_Labo_Seif.Mariano_2D_2doCuatri_2020\FormMain\obj\Debug\FormMain.pdb
