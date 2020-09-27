@@ -37,6 +37,9 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.lblErrorDescripcion = new System.Windows.Forms.Label();
+            this.lblErrorPrecio = new System.Windows.Forms.Label();
+            this.lblErrorStock = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblDescripcion
@@ -117,12 +120,45 @@
             this.label1.TabIndex = 8;
             this.label1.Text = "Crear Producto";
             // 
+            // lblErrorDescripcion
+            // 
+            this.lblErrorDescripcion.AutoSize = true;
+            this.lblErrorDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblErrorDescripcion.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorDescripcion.Location = new System.Drawing.Point(113, 65);
+            this.lblErrorDescripcion.Name = "lblErrorDescripcion";
+            this.lblErrorDescripcion.Size = new System.Drawing.Size(0, 13);
+            this.lblErrorDescripcion.TabIndex = 9;
+            // 
+            // lblErrorPrecio
+            // 
+            this.lblErrorPrecio.AutoSize = true;
+            this.lblErrorPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblErrorPrecio.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorPrecio.Location = new System.Drawing.Point(113, 101);
+            this.lblErrorPrecio.Name = "lblErrorPrecio";
+            this.lblErrorPrecio.Size = new System.Drawing.Size(0, 13);
+            this.lblErrorPrecio.TabIndex = 10;
+            // 
+            // lblErrorStock
+            // 
+            this.lblErrorStock.AutoSize = true;
+            this.lblErrorStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblErrorStock.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorStock.Location = new System.Drawing.Point(113, 140);
+            this.lblErrorStock.Name = "lblErrorStock";
+            this.lblErrorStock.Size = new System.Drawing.Size(0, 13);
+            this.lblErrorStock.TabIndex = 11;
+            // 
             // FormProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkKhaki;
             this.ClientSize = new System.Drawing.Size(271, 244);
+            this.Controls.Add(this.lblErrorStock);
+            this.Controls.Add(this.lblErrorPrecio);
+            this.Controls.Add(this.lblErrorDescripcion);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnGuardar);
@@ -150,5 +186,8 @@
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblErrorDescripcion;
+        private System.Windows.Forms.Label lblErrorPrecio;
+        private System.Windows.Forms.Label lblErrorStock;
     }
 }

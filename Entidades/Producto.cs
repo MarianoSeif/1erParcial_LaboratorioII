@@ -11,6 +11,10 @@ namespace Entidades
         private double precio;
         private int stock;
 
+        public int Id
+        {
+            get { return this.id; }
+        }
         public string Descripcion
         {
             get { return this.descripcion; }
@@ -19,11 +23,13 @@ namespace Entidades
         public double Precio
         {
             get { return this.precio; }
+            set { this.precio = value; }
         }
 
         public int Stock
         {
             get { return this.stock; }
+            set { this.stock = value; }
         }
 
         public Producto(string descripcion, double precio, int stock)
@@ -32,6 +38,30 @@ namespace Entidades
             this.descripcion = descripcion;
             this.precio = precio;
             this.stock = stock;
+        }
+
+        public static int operator ==(List<Producto> listadoProductos, Producto producto)
+        {
+            for (int i = 0; i < listadoProductos.Count; i++)
+            {
+                if (Validaciones.CompararStrings(listadoProductos[i].Descripcion, producto.Descripcion))
+                {
+                    return i;
+                }
+            }
+            return -1;
+        }
+
+        public static int operator !=(List<Producto> listadoProductos, Producto producto)
+        {
+            for (int i = 0; i < listadoProductos.Count; i++)
+            {
+                if (Validaciones.CompararStrings(listadoProductos[i].Descripcion, producto.Descripcion))
+                {
+                    return i;
+                }
+            }
+            return -1;
         }
     }
 }
