@@ -26,7 +26,7 @@ namespace FormMain
             var apellidos = new AutoCompleteStringCollection();
             var dnis = new AutoCompleteStringCollection();
 
-            foreach (Persona cliente in Kwik_E_Mart.listadoClientes)
+            foreach (Cliente cliente in Kwik_E_Mart.listadoClientes)
             {
                 nombres.Add(cliente.Nombre);
                 apellidos.Add(cliente.Apellido);
@@ -150,6 +150,19 @@ namespace FormMain
                 }
                 else
                 {
+                    Empleado empleado = (Empleado) this.cmbEmpleado.SelectedItem;
+                    Cliente cliente = BuscarCliente(this.txbNombre.Text, this.txbApellido.Text, this.txbDni.Text);
+                    if ( cliente != null)
+                    {
+                        //Ver stock!!!!! 
+                        //falta compra detalles!!!!
+                        Compra nuevaCompra = new Compra(cliente, empleado);
+                    }
+                    else
+                    {
+                        int.TryParse(this.txbDni.Text, out int dni);
+                        Kwik_E_Mart.listadoClientes.Add(new Cliente(this.txbNombre.Text, this.txbApellido.Text, dni));
+                    }
                     this.DialogResult = DialogResult.OK;
                 }
             }
@@ -170,9 +183,19 @@ namespace FormMain
             }
         }
 
-        private bool BuscarCliente()
+        private Cliente BuscarCliente(string nombre, string apellido, string dni)
         {
-            return true;
+            Cliente auxCliente = Cliente.BuscarClientePorDni(dni);
+            if (auxCliente != null)
+            {
+                if( !Validaciones.CompararStrings(auxCliente.Nombre, nombre) ||
+                    !Validaciones.CompararStrings(auxCliente.Apellido, apellido))
+                {
+                    MessageBox.Show("Ya existe un cliente con ese DNI!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return null;
+                }
+            }
+            return auxCliente;
         }
 
         private void btnAnularCompra_Click(object sender, EventArgs e)

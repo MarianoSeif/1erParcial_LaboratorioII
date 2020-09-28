@@ -6,9 +6,9 @@ namespace Entidades
 {
     public class Persona
     {
-        private string nombre;
-        private string apellido;
-        private int dni;
+        protected string nombre;
+        protected string apellido;
+        protected int dni;
         public string Nombre
         {
             get { return nombre; }

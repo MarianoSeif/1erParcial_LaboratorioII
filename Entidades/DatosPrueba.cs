@@ -14,12 +14,12 @@ namespace Entidades
             int[] dnisClientes = { 15321654, 16987654, 15666666, 1357159, 16644799 };
             for (int i = 0; i < 5; i++)
             {
-                Kwik_E_Mart.listadoClientes.Add(new Persona(nombresClientes[i], apellidosClientes[i], dnisClientes[i]));
+                Kwik_E_Mart.listadoClientes.Add(new Cliente(nombresClientes[i], apellidosClientes[i], dnisClientes[i]));
             }
 
             //Generar Empleados
-            Kwik_E_Mart.listadoEmpleados.Add(new Persona("Apu", "Nahasapeemapetilon", 159764115));
-            Kwik_E_Mart.listadoEmpleados.Add(new Persona("Sanjay", "Nahasapeemapetilon", 13441023));
+            Kwik_E_Mart.listadoEmpleados.Add(new Empleado("Apu", "Nahasapeemapetilon", 159764115, 60000));
+            Kwik_E_Mart.listadoEmpleados.Add(new Empleado("Sanjay", "Nahasapeemapetilon", 13441023, 50000));
 
             //Generar Productos
             string[] descripcionProducto = {"Pan","Harina","Fideos","Arroz","Atun","Arvejas","Leche","Queso",

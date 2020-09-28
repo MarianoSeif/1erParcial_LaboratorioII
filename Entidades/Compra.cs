@@ -35,7 +35,7 @@ namespace Entidades
             get { return this.total; }
         }
 
-        public Compra()
+        private Compra()
         {
             detalles = new List<CompraDetalle>();
             total = 0;
