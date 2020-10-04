@@ -17,7 +17,6 @@ namespace FormMain
         public Producto NuevoProducto
         {
             get { return nuevoProducto; }
-            //set { nuevoProducto = value; }
         }
 
         public FormProducto()

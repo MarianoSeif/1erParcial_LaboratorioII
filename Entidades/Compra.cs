@@ -14,10 +14,6 @@ namespace Entidades
         public List<CompraDetalle> Detalles
         {
             get { return this.detalles; }
-            set { 
-                this.detalles = value;
-                CalcularTotal();
-            }
         }
 
         public string Cliente

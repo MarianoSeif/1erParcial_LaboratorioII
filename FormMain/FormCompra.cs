@@ -15,6 +15,12 @@ namespace FormMain
 {
     public partial class FormCompra : Form
     {
+        private Compra nuevaCompra;
+        public Compra NuevaCompra
+        {
+            get { return this.nuevaCompra; }
+        }
+
         public FormCompra()
         {
             InitializeComponent();
@@ -46,10 +52,7 @@ namespace FormMain
             for (int i = 1; i < 4; i++)
             {
                 this.dtgProductosVendidos.Columns[i].ReadOnly = true;
-                this.dtgProductosVendidos.Columns[i].ReadOnly = true;
-                this.dtgProductosVendidos.Columns[i].ReadOnly = true;
             }
-            
         }
 
         private int BuscarDni(string nombre, string apellido)
@@ -82,6 +85,7 @@ namespace FormMain
             }
         }
 
+        #region Drag and Drop
         private void dtgProductos_MouseDown(object sender, MouseEventArgs e)
         {
             this.dtgProductos.ClearSelection();
@@ -101,18 +105,71 @@ namespace FormMain
             {
                 if (e.Effect == DragDropEffects.Copy)
                 {
-                    DataGridViewRow fila = (DataGridViewRow)e.Data.GetData(typeof(DataGridViewRow));
-                    Producto auxProducto = (Producto) fila.DataBoundItem;
-                    this.dtgProductosVendidos.Rows.Add("", auxProducto.Id, auxProducto.Descripcion, auxProducto.Precio);
+                    bool estaEnElListado = false;
+                    DataGridViewRow filaParaAgregar = (DataGridViewRow)e.Data.GetData(typeof(DataGridViewRow));
+                    Producto auxProducto = (Producto) filaParaAgregar.DataBoundItem;
+                    if (this.dtgProductosVendidos.Rows.Count == 0)
+                    {
+                        this.dtgProductosVendidos.Rows.Add("", auxProducto.Id, auxProducto.Descripcion, auxProducto.Precio);
+                    }
+                    else
+                    {
+                        foreach (DataGridViewRow fila in this.dtgProductosVendidos.Rows)
+                        {
+                            //verifica si el producto ya está en el listado antes de agregarlo
+                            if (fila.Cells[1].Value.ToString() == auxProducto.Id.ToString())
+                            {
+                                MessageBox.Show("Este producto ya se encuentra en el listado", "Error de producto", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                estaEnElListado = true;
+                            }
+                        }
+                        if (!estaEnElListado)
+                        {
+                            this.dtgProductosVendidos.Rows.Add("", auxProducto.Id, auxProducto.Descripcion, auxProducto.Precio);
+                        }
+                    }
                 }
             }
-
-
         }
+        #endregion
 
         private void dtgProductosVendidos_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            CalcularTotal();
+            string strCantidad = String.Empty;
+            //obtengo el id del producto
+            string idProducto = this.dtgProductosVendidos.Rows[e.RowIndex].Cells[1].Value.ToString();
+            //obtengo la cantidad del producto
+            if (this.dtgProductosVendidos.Rows[e.RowIndex].Cells[0].Value != null){
+                strCantidad = this.dtgProductosVendidos.Rows[e.RowIndex].Cells[0].Value.ToString();
+            }
+
+            Producto producto = Kwik_E_Mart.BuscarProductoPorId(idProducto);
+            if (int.TryParse(strCantidad, out int cantidad) && cantidad >0)
+            {
+                if (cantidad <= producto.Stock)
+                {
+                    CalcularTotal();
+                }
+                else
+                {
+                    MessageBox.Show(
+                        $"Solo hay {producto.Stock} unidades de {producto.Descripcion}",
+                        "Error en columna cantidad",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error
+                    );
+                    this.dtgProductosVendidos.Rows[e.RowIndex].Cells[0].Value = producto.Stock;
+                }
+            }
+            else
+            {
+                MessageBox.Show(
+                        "La cantidad debe ser un numero entero mayor a 0",
+                        "Error en columna cantidad",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error
+                    );
+            }            
         }
 
         private bool CalcularTotal()
@@ -120,9 +177,9 @@ namespace FormMain
             double total = 0;
             foreach (DataGridViewRow fila in this.dtgProductosVendidos.Rows)
             {
-                bool esNumero = int.TryParse(fila.Cells[0].Value.ToString(), out int cantidad);
+                int.TryParse(fila.Cells[0].Value.ToString(), out int cantidad);
                 double.TryParse(fila.Cells[3].Value.ToString(), out double precio);
-                if (fila.Cells[0].Value.ToString() == String.Empty || !esNumero)
+                if (fila.Cells[0].Value.ToString() == String.Empty)
                 {
                     MessageBox.Show("Ingrese un numero entero en la columna cantidad", "Ingrese una cantidad", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
@@ -152,16 +209,20 @@ namespace FormMain
                 {
                     Empleado empleado = (Empleado) this.cmbEmpleado.SelectedItem;
                     Cliente cliente = BuscarCliente(this.txbNombre.Text, this.txbApellido.Text, this.txbDni.Text);
-                    if ( cliente != null)
+
+                    if (cliente == null)
                     {
-                        //Ver stock!!!!! 
-                        //falta compra detalles!!!!
-                        Compra nuevaCompra = new Compra(cliente, empleado);
-                    }
-                    else
-                    {
-                        int.TryParse(this.txbDni.Text, out int dni);
+                        int dni = Validaciones.StringDni(this.txbDni.Text);
                         Kwik_E_Mart.listadoClientes.Add(new Cliente(this.txbNombre.Text, this.txbApellido.Text, dni));
+                    }
+                    this.nuevaCompra = new Compra(cliente, empleado);
+                    foreach (DataGridViewRow fila in this.dtgProductosVendidos.Rows)
+                    {
+                        int.TryParse(fila.Cells[0].Value.ToString(), out int cantidad);
+                        string idProducto = fila.Cells[1].Value.ToString();
+                        double.TryParse(fila.Cells[3].Value.ToString(), out double precio);
+                        Producto producto = Kwik_E_Mart.BuscarProductoPorId(idProducto);
+                        nuevaCompra.Detalles.Add(new CompraDetalle(producto, cantidad, precio));
                     }
                     this.DialogResult = DialogResult.OK;
                 }
@@ -178,7 +239,7 @@ namespace FormMain
             }
             else
             {
-                MessageBox.Show("Complete todos los datos del cliente", "Ingrese Cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Complete correctamente todos los datos del cliente", "Ingrese Cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
         }

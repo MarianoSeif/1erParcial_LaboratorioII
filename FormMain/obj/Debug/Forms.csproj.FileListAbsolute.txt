@@ -13,3 +13,4 @@ C:\Users\ms\source\repos\2do_Parcial_Labo_Seif.Mariano_2D_2doCuatri_2020\FormMai
 C:\Users\ms\source\repos\2do_Parcial_Labo_Seif.Mariano_2D_2doCuatri_2020\FormMain\obj\Debug\FormMain.exe
 C:\Users\ms\source\repos\2do_Parcial_Labo_Seif.Mariano_2D_2doCuatri_2020\FormMain\obj\Debug\FormMain.pdb
 C:\Users\ms\source\repos\2do_Parcial_Labo_Seif.Mariano_2D_2doCuatri_2020\FormMain\obj\Debug\FormMain.FormCompra.resources
+C:\Users\ms\source\repos\2do_Parcial_Labo_Seif.Mariano_2D_2doCuatri_2020\FormMain\obj\Debug\FormMain.FormProductoStocks.resources

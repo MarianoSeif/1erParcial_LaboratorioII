@@ -70,13 +70,36 @@ namespace FormMain
 
             if(formCompra.ShowDialog() == DialogResult.OK)
             {
-                MessageBox.Show("Compra finalizada");
+                
+                //resto los productos vendidos del stock
+                foreach (CompraDetalle detalle in formCompra.NuevaCompra.Detalles)
+                {
+                    if(!(Kwik_E_Mart.listadoProductos - detalle))
+                    {
+                        MessageBox.Show(
+                            "Algo salió mal al intentar procesar la compra",
+                            "Error",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error
+                        );
+                    }
+                }
+                
+                Kwik_E_Mart.listadoCompras.Add(formCompra.NuevaCompra);
+                MessageBox.Show("Vuelvan prontosss!!!");
             }
         }
 
-        private void hardcodearToolStripMenuItem_Click(object sender, EventArgs e)
+        private void verStockToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            FormProductoStocks formProductoStocks = new FormProductoStocks();
+            formProductoStocks.ShowDialog();
+        }
 
+        private void stock10ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormProductoStocks formProductoStocks = new FormProductoStocks("menos de 10");
+            formProductoStocks.ShowDialog();
         }
     }
 }

@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Common;
+using System.Runtime.InteropServices;
 using System.Text;
 
 namespace Entidades
 {
-    
+
     public static class Kwik_E_Mart
     {
         public static List<Producto> listadoProductos;
@@ -24,6 +26,26 @@ namespace Entidades
             ultimoIdProducto = 0;
             ultimoIdCliente = 0;
             ultimoIdEmpleado = 0;
+        }
+
+        public static Producto BuscarProductoPorId(int id)
+        {
+            foreach (Producto item in listadoProductos)
+            {
+                if (item.Id == id) return item;
+            }
+            return null;
+        }
+        public static Producto BuscarProductoPorId(string strId)
+        {
+            if (int.TryParse(strId, out int id))
+            {
+                foreach (Producto item in listadoProductos)
+                {
+                    if (item.Id == id) return item;
+                }
+            }
+            return null;
         }
     }
 }

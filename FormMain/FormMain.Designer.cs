@@ -42,11 +42,12 @@
             this.listarEmpleadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dtgProductos = new System.Windows.Forms.DataGridView();
             this.lblProductosDataGrid = new System.Windows.Forms.Label();
-            this.hardcodearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dtgCompras = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.dtgEmpleados = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
+            this.todosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sumarStockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgProductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgCompras)).BeginInit();
@@ -59,8 +60,7 @@
             this.archivoToolStripMenuItem,
             this.productosToolStripMenuItem,
             this.clientesToolStripMenuItem,
-            this.empleadosToolStripMenuItem,
-            this.hardcodearToolStripMenuItem});
+            this.empleadosToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -85,9 +85,11 @@
             // productosToolStripMenuItem
             // 
             this.productosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.verStockToolStripMenuItem,
             this.nuevoProductoToolStripMenuItem,
-            this.stock10ToolStripMenuItem});
+            this.sumarStockToolStripMenuItem,
+            this.verStockToolStripMenuItem,
+            this.stock10ToolStripMenuItem,
+            this.todosToolStripMenuItem});
             this.productosToolStripMenuItem.Name = "productosToolStripMenuItem";
             this.productosToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
             this.productosToolStripMenuItem.Text = "&Productos";
@@ -96,20 +98,22 @@
             // 
             this.verStockToolStripMenuItem.Name = "verStockToolStripMenuItem";
             this.verStockToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.verStockToolStripMenuItem.Text = "&Ver Stock";
+            this.verStockToolStripMenuItem.Text = "&Ver en Stock";
+            this.verStockToolStripMenuItem.Click += new System.EventHandler(this.verStockToolStripMenuItem_Click);
             // 
             // nuevoProductoToolStripMenuItem
             // 
             this.nuevoProductoToolStripMenuItem.Name = "nuevoProductoToolStripMenuItem";
             this.nuevoProductoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.nuevoProductoToolStripMenuItem.Text = "&Nuevo Producto";
+            this.nuevoProductoToolStripMenuItem.Text = "&Crear Producto";
             this.nuevoProductoToolStripMenuItem.Click += new System.EventHandler(this.nuevoProductoToolStripMenuItem_Click);
             // 
             // stock10ToolStripMenuItem
             // 
             this.stock10ToolStripMenuItem.Name = "stock10ToolStripMenuItem";
             this.stock10ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.stock10ToolStripMenuItem.Text = "M&enos de 10!";
+            this.stock10ToolStripMenuItem.Text = "Ver m&enos de 10!";
+            this.stock10ToolStripMenuItem.Click += new System.EventHandler(this.stock10ToolStripMenuItem_Click);
             // 
             // clientesToolStripMenuItem
             // 
@@ -122,7 +126,7 @@
             // nuevoClienteToolStripMenuItem
             // 
             this.nuevoClienteToolStripMenuItem.Name = "nuevoClienteToolStripMenuItem";
-            this.nuevoClienteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.nuevoClienteToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.nuevoClienteToolStripMenuItem.Text = "Nuevo Cli&ente";
             // 
             // empleadosToolStripMenuItem
@@ -164,13 +168,6 @@
             this.lblProductosDataGrid.TabIndex = 2;
             this.lblProductosDataGrid.Text = "Productos";
             // 
-            // hardcodearToolStripMenuItem
-            // 
-            this.hardcodearToolStripMenuItem.Name = "hardcodearToolStripMenuItem";
-            this.hardcodearToolStripMenuItem.Size = new System.Drawing.Size(81, 20);
-            this.hardcodearToolStripMenuItem.Text = "&Hardcodear";
-            this.hardcodearToolStripMenuItem.Click += new System.EventHandler(this.hardcodearToolStripMenuItem_Click);
-            // 
             // dtgCompras
             // 
             this.dtgCompras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -207,11 +204,23 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "Empleados";
             // 
+            // todosToolStripMenuItem
+            // 
+            this.todosToolStripMenuItem.Name = "todosToolStripMenuItem";
+            this.todosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.todosToolStripMenuItem.Text = "Ver &todos";
+            // 
+            // sumarStockToolStripMenuItem
+            // 
+            this.sumarStockToolStripMenuItem.Name = "sumarStockToolStripMenuItem";
+            this.sumarStockToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sumarStockToolStripMenuItem.Text = "Sumar stock";
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(200)))), ((int)(((byte)(10)))));
             this.ClientSize = new System.Drawing.Size(800, 583);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dtgEmpleados);
@@ -250,11 +259,12 @@
         private System.Windows.Forms.ToolStripMenuItem listarEmpleadosToolStripMenuItem;
         private System.Windows.Forms.DataGridView dtgProductos;
         private System.Windows.Forms.Label lblProductosDataGrid;
-        private System.Windows.Forms.ToolStripMenuItem hardcodearToolStripMenuItem;
         private System.Windows.Forms.DataGridView dtgCompras;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dtgEmpleados;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ToolStripMenuItem sumarStockToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem todosToolStripMenuItem;
     }
 }
 
