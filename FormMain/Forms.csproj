@@ -76,6 +76,12 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormPersonajes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPersonajes.Designer.cs">
+      <DependentUpon>FormPersonajes.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormProducto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +116,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPersonajes.resx">
+      <DependentUpon>FormPersonajes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormProducto.resx">
       <DependentUpon>FormProducto.cs</DependentUpon>
@@ -154,6 +163,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Apu_.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\classiccoin.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

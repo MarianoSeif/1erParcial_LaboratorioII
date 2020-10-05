@@ -45,6 +45,7 @@
             this.btnNuevaCompra = new System.Windows.Forms.Button();
             this.btnProductos = new System.Windows.Forms.Button();
             this.btnEmpleados = new System.Windows.Forms.Button();
+            this.personajesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,7 +54,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.archivoToolStripMenuItem,
             this.productosToolStripMenuItem,
-            this.empleadosToolStripMenuItem});
+            this.empleadosToolStripMenuItem,
+            this.personajesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(780, 24);
@@ -143,7 +145,7 @@
             // listarEmpleadosToolStripMenuItem
             // 
             this.listarEmpleadosToolStripMenuItem.Name = "listarEmpleadosToolStripMenuItem";
-            this.listarEmpleadosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.listarEmpleadosToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.listarEmpleadosToolStripMenuItem.Text = "List&ar Empleados";
             this.listarEmpleadosToolStripMenuItem.Click += new System.EventHandler(this.listarEmpleadosToolStripMenuItem_Click);
             // 
@@ -201,6 +203,13 @@
             this.btnEmpleados.UseVisualStyleBackColor = true;
             this.btnEmpleados.Click += new System.EventHandler(this.verComprasXEmpleadoToolStripMenuItem_Click);
             // 
+            // personajesToolStripMenuItem
+            // 
+            this.personajesToolStripMenuItem.Name = "personajesToolStripMenuItem";
+            this.personajesToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
+            this.personajesToolStripMenuItem.Text = "&Personajes";
+            this.personajesToolStripMenuItem.Click += new System.EventHandler(this.personajesToolStripMenuItem_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -250,6 +259,7 @@
         private System.Windows.Forms.Button btnNuevaCompra;
         private System.Windows.Forms.Button btnProductos;
         private System.Windows.Forms.Button btnEmpleados;
+        private System.Windows.Forms.ToolStripMenuItem personajesToolStripMenuItem;
     }
 }
 

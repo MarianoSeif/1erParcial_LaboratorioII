@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Entidades
 {
-    public class Persona
+    public abstract class Persona
     {
         protected string nombre;
         protected string apellido;
@@ -32,6 +32,11 @@ namespace Entidades
             this.nombre = nombre;
             this.apellido = apellido;
             this.dni = dni;
+        }
+
+        public virtual string Hola()
+        {
+            return $"Hola!, mi nombre es {nombre} {apellido}";
         }
 
         public override string ToString()

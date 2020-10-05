@@ -34,5 +34,13 @@ namespace Entidades
             }
             return null;
         }
+
+        public override string Hola()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine(base.Hola());
+            sb.AppendLine("Trabajo en el gran Kwik-E-Mart");
+            return sb.ToString();
+        }
     }
 }

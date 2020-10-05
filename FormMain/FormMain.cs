@@ -68,9 +68,6 @@ namespace FormMain
                         mensaje = "Se actualizaron los datos del producto";
                     }
                 }
-
-                //this.dtgProductos.DataSource = null;
-                //this.dtgProductos.DataSource = Kwik_E_Mart.listadoProductos;
                 MessageBox.Show(mensaje, "Alta de Producto", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
@@ -185,5 +182,11 @@ namespace FormMain
         }
 
         #endregion
+
+        private void personajesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormPersonajes formPersonajes = new FormPersonajes();
+            formPersonajes.ShowDialog();
+        }
     }
 }

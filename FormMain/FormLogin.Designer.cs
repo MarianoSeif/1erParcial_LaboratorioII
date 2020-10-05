@@ -122,7 +122,9 @@
             this.Controls.Add(this.lblUser);
             this.Controls.Add(this.txbPass);
             this.Controls.Add(this.txbUser);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "FormLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Kiwk E Mart Login";
             this.Load += new System.EventHandler(this.FormLogin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

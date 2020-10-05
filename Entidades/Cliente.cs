@@ -16,5 +16,13 @@ namespace Entidades
         {
             this.id = Kwik_E_Mart.ultimoIdCliente++;
         }
+
+        public override string Hola()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine(base.Hola());
+            sb.AppendLine("Soy cliente del gran Kwik-E-Mart");
+            return sb.ToString();
+        }
     }
 }
