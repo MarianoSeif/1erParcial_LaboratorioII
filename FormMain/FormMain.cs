@@ -15,14 +15,29 @@ namespace FormMain
 {
     public partial class FormMain : Form
     {
+        private bool menuIsActive = false;
+        static System.Windows.Forms.Timer showTimer;
+        static System.Windows.Forms.Timer hideTimer;
         public FormMain()
         {
             InitializeComponent();
         }
-
+        
         private void FormMain_Load(object sender, EventArgs e)
         {
             DatosPrueba.CargarDatosPrueba();
+            this.menuStrip1.Visible = false;
+
+            showTimer = new System.Windows.Forms.Timer();
+            hideTimer = new System.Windows.Forms.Timer();
+
+            showTimer.Tick += new EventHandler(showTimer_Tick);
+            showTimer.Interval = 100;
+            showTimer.Start();
+
+            hideTimer.Tick += new EventHandler(hideTimer_Tick);
+            hideTimer.Interval = 125;
+            hideTimer.Start();
         }
 
         private void nuevoProductoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -138,5 +153,37 @@ namespace FormMain
             FormProductoSumarStock formProductoSumarStock = new FormProductoSumarStock();
             formProductoSumarStock.ShowDialog();
         }
+
+        #region ocultar menu
+        private void hideTimer_Tick(object sender, EventArgs e)
+        {
+            var p = this.menuStrip1.PointToClient(MousePosition);
+            if (menuIsActive)
+                return;
+            if (menuStrip1.ClientRectangle.Contains(p))
+                return;
+            foreach (ToolStripMenuItem item in menuStrip1.Items)
+                if (item.DropDown.Visible)
+                    return;
+            this.menuStrip1.Visible = false;
+        }
+
+        private void showTimer_Tick(object sender, EventArgs e)
+        {
+            var p = this.PointToClient(MousePosition);
+            if (this.ClientRectangle.Contains(p) && p.Y < 20)
+                this.menuStrip1.Visible = true;
+        }
+        private void menuStrip1_MenuActivate(object sender, EventArgs e)
+        {
+            menuIsActive = true;
+        }
+        private void menuStrip1_MenuDeactivate(object sender, EventArgs e)
+        {
+            menuIsActive = false;
+            this.BeginInvoke(new Action(() => { this.menuStrip1.Visible = false; }));
+        }
+
+        #endregion
     }
 }
