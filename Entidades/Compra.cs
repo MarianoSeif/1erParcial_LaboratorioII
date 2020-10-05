@@ -7,8 +7,8 @@ namespace Entidades
     public class Compra
     {
         List<CompraDetalle> detalles;
-        Persona cliente;
-        Persona empleado;
+        Cliente cliente;
+        Empleado empleado;
         double total;
 
         public List<CompraDetalle> Detalles
@@ -16,19 +16,22 @@ namespace Entidades
             get { return this.detalles; }
         }
 
-        public string Cliente
+        public Cliente Cliente
         {
-            get { return this.cliente.Nombre + this.cliente.Apellido; }
+            get { return this.cliente; }
+            //get { return this.cliente.Nombre + this.cliente.Apellido; }
         }
 
-        public string Empleado
+        public Empleado Empleado
         {
-            get { return this.empleado.Nombre + this.empleado.Apellido; }
+            get { return this.empleado; }
+            //get { return this.empleado.Nombre + this.empleado.Apellido; }
         }
 
         public double Total
         {
             get { return this.total; }
+            set { this.total = value; }
         }
 
         private Compra()
@@ -37,7 +40,7 @@ namespace Entidades
             total = 0;
         }
 
-        public Compra(Persona cliente, Persona empleado) : this()
+        public Compra(Cliente cliente, Empleado empleado) : this()
         {
             this.cliente = cliente;
             this.empleado = empleado;

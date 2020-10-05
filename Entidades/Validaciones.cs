@@ -25,7 +25,7 @@ namespace Entidades
 
         public static int StringDni(string strDni)
         {
-            if( strDni.Length > 7 && strDni.Length < 9 && int.TryParse(strDni, out int dni)){
+            if( (strDni.Length >= 7) && (strDni.Length <= 9) && int.TryParse(strDni, out int dni)){
                 return dni;
             }
             return -1;

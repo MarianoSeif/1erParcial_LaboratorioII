@@ -44,11 +44,20 @@ namespace FormMain
             this.txbDni.AutoCompleteCustomSource = dnis;
             this.cmbEmpleado.DataSource = Kwik_E_Mart.listadoEmpleados;
             this.dtgProductos.DataSource = Kwik_E_Mart.listadoProductos;
-            //Data Grid Productos Vendidos
+            //DataGrid Productos
+            this.dtgProductos.Columns[0].Width = 100;
+            this.dtgProductos.Columns[1].Width = 310;
+            this.dtgProductos.Columns[2].Width = 150;
+            this.dtgProductos.Columns[3].Width = 150;
+            //DataGrid Productos Vendidos
             this.dtgProductosVendidos.Columns.Add("cantidad", "Cantidad");
             this.dtgProductosVendidos.Columns.Add("id", "Id");
             this.dtgProductosVendidos.Columns.Add("descripcion", "Descripcion");
             this.dtgProductosVendidos.Columns.Add("precio", "Precio");
+            this.dtgProductosVendidos.Columns[0].Width = 125;
+            this.dtgProductosVendidos.Columns[1].Width = 125;
+            this.dtgProductosVendidos.Columns[2].Width = 310;
+            this.dtgProductosVendidos.Columns[3].Width = 150;
             for (int i = 1; i < 4; i++)
             {
                 this.dtgProductosVendidos.Columns[i].ReadOnly = true;
@@ -90,8 +99,11 @@ namespace FormMain
         {
             this.dtgProductos.ClearSelection();
             int indiceFila = this.dtgProductos.HitTest(e.X, e.Y).RowIndex;
-            dtgProductos.Rows[indiceFila].Selected = true;
-            this.dtgProductos.DoDragDrop(this.dtgProductos.SelectedRows[0], DragDropEffects.Copy);
+            if(indiceFila > -1 && indiceFila < this.dtgProductos.Rows.Count)
+            {
+                dtgProductos.Rows[indiceFila].Selected = true;
+                this.dtgProductos.DoDragDrop(this.dtgProductos.SelectedRows[0], DragDropEffects.Copy);
+            }            
         }
 
         private void dtgProductosVendidos_DragEnter(object sender, DragEventArgs e)
@@ -213,7 +225,8 @@ namespace FormMain
                     if (cliente == null)
                     {
                         int dni = Validaciones.StringDni(this.txbDni.Text);
-                        Kwik_E_Mart.listadoClientes.Add(new Cliente(this.txbNombre.Text, this.txbApellido.Text, dni));
+                        cliente = new Cliente(this.txbNombre.Text, this.txbApellido.Text, dni);
+                        Kwik_E_Mart.listadoClientes.Add(cliente);
                     }
                     this.nuevaCompra = new Compra(cliente, empleado);
                     foreach (DataGridViewRow fila in this.dtgProductosVendidos.Rows)
@@ -223,6 +236,10 @@ namespace FormMain
                         double.TryParse(fila.Cells[3].Value.ToString(), out double precio);
                         Producto producto = Kwik_E_Mart.BuscarProductoPorId(idProducto);
                         nuevaCompra.Detalles.Add(new CompraDetalle(producto, cantidad, precio));
+                        if(double.TryParse(this.lblTotalNumero.Text, out double total))
+                        {
+                            nuevaCompra.Total = total;
+                        }                        
                     }
                     this.DialogResult = DialogResult.OK;
                 }
@@ -231,22 +248,26 @@ namespace FormMain
 
         private bool ComprobarDatosCliente()
         {
-            if (Validaciones.StringNoVacio(this.txbNombre.Text) || 
-                Validaciones.StringNoVacio(this.txbApellido.Text) || 
+            if (Validaciones.StringNoVacio(this.txbNombre.Text) && 
+                Validaciones.StringNoVacio(this.txbApellido.Text) && 
                 Validaciones.StringDni(this.txbDni.Text) != -1)
             {
                 return true;                
             }
             else
             {
-                MessageBox.Show("Complete correctamente todos los datos del cliente", "Ingrese Cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(
+                    "Complete correctamente todos los datos del cliente",
+                    "Ingrese Cliente",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
                 return false;
             }
         }
 
         private Cliente BuscarCliente(string nombre, string apellido, string dni)
         {
-            Cliente auxCliente = Cliente.BuscarClientePorDni(dni);
+            Cliente auxCliente = Kwik_E_Mart.BuscarClientePorDni(dni);
             if (auxCliente != null)
             {
                 if( !Validaciones.CompararStrings(auxCliente.Nombre, nombre) ||
@@ -266,6 +287,11 @@ namespace FormMain
             {
                 this.DialogResult = DialogResult.Cancel;
             }
+        }
+
+        private void btnCalcularTotal_Click(object sender, EventArgs e)
+        {
+            CalcularTotal();
         }
     }
 }

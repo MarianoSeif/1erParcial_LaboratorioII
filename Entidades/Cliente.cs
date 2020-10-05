@@ -16,28 +16,5 @@ namespace Entidades
         {
             this.id = Kwik_E_Mart.ultimoIdCliente++;
         }
-
-        public static Cliente BuscarClientePorDni(string strDni)
-        {
-            int.TryParse(strDni, out int dni);
-            foreach (Cliente auxCliente in Kwik_E_Mart.listadoClientes)
-            {
-                if (auxCliente.Dni == dni)
-                    return auxCliente;
-            }
-            return null;
-        }
-
-        //public bool operator ==(List<Cliente> listadoClientes, string strDni)
-        //{
-        //    foreach (Cliente auxCliente in Kwik_E_Mart.listadoClientes)
-        //    {
-        //        int.TryParse(strDni, out int dni);
-        //        if (auxCliente.Dni == dni)
-        //        {
-        //            return 
-        //        }
-        //    }
-        //}
     }
 }

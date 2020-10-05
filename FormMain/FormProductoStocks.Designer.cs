@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblProductos = new System.Windows.Forms.Label();
             this.dtgProductos = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dtgProductos)).BeginInit();
@@ -45,10 +47,31 @@
             // 
             // dtgProductos
             // 
+            this.dtgProductos.AllowUserToAddRows = false;
+            this.dtgProductos.AllowUserToDeleteRows = false;
+            this.dtgProductos.AllowUserToResizeColumns = false;
+            this.dtgProductos.AllowUserToResizeRows = false;
+            this.dtgProductos.BackgroundColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Tai Le", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dtgProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgProductos.Location = new System.Drawing.Point(30, 51);
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgProductos.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dtgProductos.Location = new System.Drawing.Point(12, 42);
             this.dtgProductos.Name = "dtgProductos";
-            this.dtgProductos.Size = new System.Drawing.Size(737, 360);
+            this.dtgProductos.Size = new System.Drawing.Size(771, 360);
             this.dtgProductos.TabIndex = 10;
             // 
             // FormProductoStocks
@@ -60,7 +83,8 @@
             this.Controls.Add(this.dtgProductos);
             this.Controls.Add(this.lblProductos);
             this.Name = "FormProductoStocks";
-            this.Text = "FormProductoStocks";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Kiwk-E-Mart -> Stock";
             this.Load += new System.EventHandler(this.FormProductoStocks_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgProductos)).EndInit();
             this.ResumeLayout(false);

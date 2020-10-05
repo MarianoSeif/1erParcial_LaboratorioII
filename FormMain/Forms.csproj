@@ -52,6 +52,24 @@
     <Compile Include="FormCompra.Designer.cs">
       <DependentUpon>FormCompra.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormCompraInforme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCompraInforme.Designer.cs">
+      <DependentUpon>FormCompraInforme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormEmpleadoListar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEmpleadoListar.Designer.cs">
+      <DependentUpon>FormEmpleadoListar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLogin.Designer.cs">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,10 +88,25 @@
     <Compile Include="FormProductoStocks.Designer.cs">
       <DependentUpon>FormProductoStocks.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormProductoSumarStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormProductoSumarStock.Designer.cs">
+      <DependentUpon>FormProductoSumarStock.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormCompra.resx">
       <DependentUpon>FormCompra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCompraInforme.resx">
+      <DependentUpon>FormCompraInforme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEmpleadoListar.resx">
+      <DependentUpon>FormEmpleadoListar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
@@ -84,19 +117,23 @@
     <EmbeddedResource Include="FormProductoStocks.resx">
       <DependentUpon>FormProductoStocks.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormProductoSumarStock.resx">
+      <DependentUpon>FormProductoSumarStock.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -111,6 +148,12 @@
       <Project>{e6d2969f-2865-4fcf-9cb7-c662040720a2}</Project>
       <Name>Entidades</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Kwik-E-Mart_.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Apu_.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

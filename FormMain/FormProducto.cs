@@ -31,7 +31,7 @@ namespace FormMain
 
             if (this.txbDescripcion.Text == String.Empty || this.txbDescripcion.Text.Length < 3)
             {
-                this.lblErrorDescripcion.Text = "Ingrese una descripcion (minimo 3 caracteres)";
+                this.lblErrorDescripcion.Text = "Ingrese una descripcion(minimo 3 caracteres)";
             }
             //else if (buscarProductoEnListado(this.txbDescripcion.Text))
             //{

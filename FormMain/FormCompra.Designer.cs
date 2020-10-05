@@ -28,6 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txbNombre = new System.Windows.Forms.TextBox();
             this.txbApellido = new System.Windows.Forms.TextBox();
             this.txbDni = new System.Windows.Forms.TextBox();
@@ -44,10 +49,10 @@
             this.lblTotalNumero = new System.Windows.Forms.Label();
             this.btnFinalizarCompra = new System.Windows.Forms.Button();
             this.lblMensajeTotal = new System.Windows.Forms.Label();
-            this.lblErrorCliente = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnAnularCompra = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnCalcularTotal = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtgProductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgProductosVendidos)).BeginInit();
             this.SuspendLayout();
@@ -109,8 +114,9 @@
             // 
             // cmbEmpleado
             // 
+            this.cmbEmpleado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbEmpleado.FormattingEnabled = true;
-            this.cmbEmpleado.Location = new System.Drawing.Point(148, 93);
+            this.cmbEmpleado.Location = new System.Drawing.Point(148, 74);
             this.cmbEmpleado.Name = "cmbEmpleado";
             this.cmbEmpleado.Size = new System.Drawing.Size(187, 21);
             this.cmbEmpleado.TabIndex = 6;
@@ -129,7 +135,7 @@
             // 
             this.lblEmpleado.AutoSize = true;
             this.lblEmpleado.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmpleado.Location = new System.Drawing.Point(12, 84);
+            this.lblEmpleado.Location = new System.Drawing.Point(12, 65);
             this.lblEmpleado.Name = "lblEmpleado";
             this.lblEmpleado.Size = new System.Drawing.Size(106, 30);
             this.lblEmpleado.TabIndex = 9;
@@ -141,8 +147,29 @@
             this.dtgProductos.AllowUserToDeleteRows = false;
             this.dtgProductos.AllowUserToResizeColumns = false;
             this.dtgProductos.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtgProductos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dtgProductos.BackgroundColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Tai Le", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dtgProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgProductos.Location = new System.Drawing.Point(12, 142);
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgProductos.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dtgProductos.Location = new System.Drawing.Point(12, 123);
+            this.dtgProductos.MultiSelect = false;
             this.dtgProductos.Name = "dtgProductos";
             this.dtgProductos.ReadOnly = true;
             this.dtgProductos.Size = new System.Drawing.Size(771, 231);
@@ -152,7 +179,7 @@
             // lblSeparador
             // 
             this.lblSeparador.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblSeparador.Location = new System.Drawing.Point(12, 127);
+            this.lblSeparador.Location = new System.Drawing.Point(12, 108);
             this.lblSeparador.Name = "lblSeparador";
             this.lblSeparador.Size = new System.Drawing.Size(766, 2);
             this.lblSeparador.TabIndex = 11;
@@ -163,10 +190,28 @@
             this.dtgProductosVendidos.AllowUserToAddRows = false;
             this.dtgProductosVendidos.AllowUserToResizeColumns = false;
             this.dtgProductosVendidos.AllowUserToResizeRows = false;
+            this.dtgProductosVendidos.BackgroundColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Tai Le", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgProductosVendidos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dtgProductosVendidos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgProductosVendidos.Location = new System.Drawing.Point(12, 398);
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgProductosVendidos.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dtgProductosVendidos.Location = new System.Drawing.Point(12, 379);
+            this.dtgProductosVendidos.MultiSelect = false;
             this.dtgProductosVendidos.Name = "dtgProductosVendidos";
-            this.dtgProductosVendidos.Size = new System.Drawing.Size(766, 229);
+            this.dtgProductosVendidos.Size = new System.Drawing.Size(771, 170);
             this.dtgProductosVendidos.TabIndex = 12;
             this.dtgProductosVendidos.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgProductosVendidos_CellValueChanged);
             this.dtgProductosVendidos.DragDrop += new System.Windows.Forms.DragEventHandler(this.dtgProductosVendidos_DragDrop);
@@ -176,25 +221,25 @@
             // 
             this.lblTotal.AutoSize = true;
             this.lblTotal.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal.Location = new System.Drawing.Point(7, 660);
+            this.lblTotal.Location = new System.Drawing.Point(8, 583);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(85, 30);
+            this.lblTotal.Size = new System.Drawing.Size(100, 30);
             this.lblTotal.TabIndex = 13;
-            this.lblTotal.Text = "Total: ";
+            this.lblTotal.Text = "Total: $";
             // 
             // lblTotalNumero
             // 
             this.lblTotalNumero.AutoSize = true;
             this.lblTotalNumero.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalNumero.Location = new System.Drawing.Point(92, 660);
+            this.lblTotalNumero.Location = new System.Drawing.Point(108, 583);
             this.lblTotalNumero.Name = "lblTotalNumero";
             this.lblTotalNumero.Size = new System.Drawing.Size(0, 30);
             this.lblTotalNumero.TabIndex = 14;
             // 
             // btnFinalizarCompra
             // 
-            this.btnFinalizarCompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFinalizarCompra.Location = new System.Drawing.Point(577, 732);
+            this.btnFinalizarCompra.Font = new System.Drawing.Font("Maiandra GD", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFinalizarCompra.Location = new System.Drawing.Point(578, 655);
             this.btnFinalizarCompra.Name = "btnFinalizarCompra";
             this.btnFinalizarCompra.Size = new System.Drawing.Size(201, 46);
             this.btnFinalizarCompra.TabIndex = 15;
@@ -207,34 +252,23 @@
             this.lblMensajeTotal.AutoSize = true;
             this.lblMensajeTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMensajeTotal.ForeColor = System.Drawing.Color.Red;
-            this.lblMensajeTotal.Location = new System.Drawing.Point(20, 690);
+            this.lblMensajeTotal.Location = new System.Drawing.Point(21, 613);
             this.lblMensajeTotal.Name = "lblMensajeTotal";
             this.lblMensajeTotal.Size = new System.Drawing.Size(0, 20);
             this.lblMensajeTotal.TabIndex = 16;
             // 
-            // lblErrorCliente
-            // 
-            this.lblErrorCliente.AutoSize = true;
-            this.lblErrorCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblErrorCliente.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorCliente.Location = new System.Drawing.Point(263, 35);
-            this.lblErrorCliente.Name = "lblErrorCliente";
-            this.lblErrorCliente.Size = new System.Drawing.Size(0, 20);
-            this.lblErrorCliente.TabIndex = 17;
-            this.lblErrorCliente.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // label2
             // 
             this.label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label2.Location = new System.Drawing.Point(12, 73);
+            this.label2.Location = new System.Drawing.Point(12, 54);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(766, 2);
             this.label2.TabIndex = 18;
             // 
             // btnAnularCompra
             // 
-            this.btnAnularCompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAnularCompra.Location = new System.Drawing.Point(339, 732);
+            this.btnAnularCompra.Font = new System.Drawing.Font("Maiandra GD", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAnularCompra.Location = new System.Drawing.Point(340, 655);
             this.btnAnularCompra.Name = "btnAnularCompra";
             this.btnAnularCompra.Size = new System.Drawing.Size(201, 46);
             this.btnAnularCompra.TabIndex = 19;
@@ -245,21 +279,32 @@
             // label1
             // 
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label1.Location = new System.Drawing.Point(12, 647);
+            this.label1.Location = new System.Drawing.Point(13, 570);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(766, 2);
             this.label1.TabIndex = 20;
+            // 
+            // btnCalcularTotal
+            // 
+            this.btnCalcularTotal.Font = new System.Drawing.Font("Maiandra GD", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCalcularTotal.Location = new System.Drawing.Point(13, 655);
+            this.btnCalcularTotal.Name = "btnCalcularTotal";
+            this.btnCalcularTotal.Size = new System.Drawing.Size(201, 46);
+            this.btnCalcularTotal.TabIndex = 21;
+            this.btnCalcularTotal.Text = "Calcular Total";
+            this.btnCalcularTotal.UseVisualStyleBackColor = true;
+            this.btnCalcularTotal.Click += new System.EventHandler(this.btnCalcularTotal_Click);
             // 
             // FormCompra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(200)))), ((int)(((byte)(10)))));
-            this.ClientSize = new System.Drawing.Size(800, 790);
+            this.ClientSize = new System.Drawing.Size(800, 709);
+            this.Controls.Add(this.btnCalcularTotal);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAnularCompra);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.lblErrorCliente);
             this.Controls.Add(this.lblMensajeTotal);
             this.Controls.Add(this.btnFinalizarCompra);
             this.Controls.Add(this.lblTotalNumero);
@@ -276,8 +321,12 @@
             this.Controls.Add(this.txbDni);
             this.Controls.Add(this.txbApellido);
             this.Controls.Add(this.txbNombre);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormCompra";
-            this.Text = "FormCompra";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Kiwk-E-Mart -> Nueva Compra";
             this.Load += new System.EventHandler(this.FormCompra_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgProductos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgProductosVendidos)).EndInit();
@@ -304,9 +353,9 @@
         private System.Windows.Forms.Label lblTotalNumero;
         private System.Windows.Forms.Button btnFinalizarCompra;
         private System.Windows.Forms.Label lblMensajeTotal;
-        private System.Windows.Forms.Label lblErrorCliente;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnAnularCompra;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnCalcularTotal;
     }
 }

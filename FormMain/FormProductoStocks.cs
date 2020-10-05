@@ -44,7 +44,24 @@ namespace FormMain
                 this.dtgProductos.DataSource = null;
                 this.dtgProductos.DataSource = listaMenosDe10;
             }
-            
+            else if (modo == "existencia")
+            {
+                List<Producto> listaExistencia = new List<Producto>();
+                foreach (Producto producto in Kwik_E_Mart.listadoProductos)
+                {
+                    if (producto.Stock > 0)
+                    {
+                        listaExistencia.Add(producto);
+                    }
+                }
+                this.dtgProductos.DataSource = null;
+                this.dtgProductos.DataSource = listaExistencia;
+            }
+            this.dtgProductos.Columns[0].Width = 100;
+            this.dtgProductos.Columns[1].Width = 310;
+            this.dtgProductos.Columns[2].Width = 150;
+            this.dtgProductos.Columns[3].Width = 150;
+
         }
     }
 }

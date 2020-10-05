@@ -11,8 +11,9 @@ namespace Entidades
     {
         public static List<Producto> listadoProductos;
         public static List<Compra> listadoCompras;
-        public static List<Persona> listadoEmpleados;
-        public static List<Persona> listadoClientes;
+        public static List<Empleado> listadoEmpleados;
+        public static List<Cliente> listadoClientes;
+        public static Dictionary<string, string> users = new Dictionary<string, string>();
         public static int ultimoIdProducto;
         public static int ultimoIdCliente;
         public static int ultimoIdEmpleado;
@@ -21,8 +22,8 @@ namespace Entidades
         {
             listadoProductos = new List<Producto>();
             listadoCompras = new List<Compra>();
-            listadoEmpleados = new List<Persona>();
-            listadoClientes = new List<Persona>();
+            listadoEmpleados = new List<Empleado>();
+            listadoClientes = new List<Cliente>();
             ultimoIdProducto = 0;
             ultimoIdCliente = 0;
             ultimoIdEmpleado = 0;
@@ -44,6 +45,17 @@ namespace Entidades
                 {
                     if (item.Id == id) return item;
                 }
+            }
+            return null;
+        }
+
+        public static Cliente BuscarClientePorDni(string strDni)
+        {
+            int.TryParse(strDni, out int dni);
+            foreach (Cliente auxCliente in listadoClientes)
+            {
+                if (auxCliente.Dni == dni)
+                    return auxCliente;
             }
             return null;
         }

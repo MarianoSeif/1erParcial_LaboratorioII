@@ -6,6 +6,13 @@ namespace Entidades
 {
     public static class DatosPrueba
     {
+        public static void CargarUsuarios()
+        {
+            //Crear usuarios del sistema
+            Kwik_E_Mart.users.Add("Apu", "hola");
+            Kwik_E_Mart.users.Add("Sanjai", "hola");
+        }
+        
         public static void CargarDatosPrueba()
         {
             //Generar Clientes

@@ -12,6 +12,11 @@ namespace Entidades
         {
             get { return this.id; }
         }
+
+        public double Sueldo
+        {
+            get { return this.sueldo; }
+        }
         public Empleado(string nombre, string apellido, int dni, double sueldo) : base(nombre, apellido, dni)
         {
             this.id = Kwik_E_Mart.ultimoIdEmpleado++;

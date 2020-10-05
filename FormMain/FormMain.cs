@@ -4,10 +4,12 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Entidades;
+using System.Media;
 
 namespace FormMain
 {
@@ -20,13 +22,7 @@ namespace FormMain
 
         private void FormMain_Load(object sender, EventArgs e)
         {
-            Kwik_E_Mart.listadoProductos.Add(new Producto("Coca", 143.4, 50));
-            Kwik_E_Mart.listadoProductos.Add(new Producto("Pelpa", 200, 10));
             DatosPrueba.CargarDatosPrueba();
-            this.dtgProductos.DataSource = Kwik_E_Mart.listadoProductos;
-            this.dtgCompras.DataSource = Kwik_E_Mart.listadoCompras;
-            this.dtgEmpleados.DataSource = Kwik_E_Mart.listadoEmpleados;
-            //this.dtgDetalles.DataSource = Kwik_E_Mart.listadoEmpleados;
         }
 
         private void nuevoProductoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -58,8 +54,8 @@ namespace FormMain
                     }
                 }
 
-                this.dtgProductos.DataSource = null;
-                this.dtgProductos.DataSource = Kwik_E_Mart.listadoProductos;
+                //this.dtgProductos.DataSource = null;
+                //this.dtgProductos.DataSource = Kwik_E_Mart.listadoProductos;
                 MessageBox.Show(mensaje, "Alta de Producto", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
@@ -70,7 +66,6 @@ namespace FormMain
 
             if(formCompra.ShowDialog() == DialogResult.OK)
             {
-                
                 //resto los productos vendidos del stock
                 foreach (CompraDetalle detalle in formCompra.NuevaCompra.Detalles)
                 {
@@ -84,15 +79,16 @@ namespace FormMain
                         );
                     }
                 }
-                
                 Kwik_E_Mart.listadoCompras.Add(formCompra.NuevaCompra);
-                MessageBox.Show("Vuelvan prontosss!!!");
+                SoundPlayer sonido = new SoundPlayer(@"C:\Users\ms\source\repos\2do_Parcial_Labo_Seif.Mariano_2D_2doCuatri_2020\media\sonidos\classiccoin.wav");
+                sonido.Play();
+                Task mensaje = this.graciasVuelvanProntos();
             }
         }
 
         private void verStockToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormProductoStocks formProductoStocks = new FormProductoStocks();
+            FormProductoStocks formProductoStocks = new FormProductoStocks("existencia");
             formProductoStocks.ShowDialog();
         }
 
@@ -100,6 +96,47 @@ namespace FormMain
         {
             FormProductoStocks formProductoStocks = new FormProductoStocks("menos de 10");
             formProductoStocks.ShowDialog();
+        }
+        private void todosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormProductoStocks formProductoStocks = new FormProductoStocks();
+            formProductoStocks.ShowDialog();
+        }
+
+        private void verComprasXEmpleadoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormCompraInforme formCompraInforme = new FormCompraInforme();
+            formCompraInforme.ShowDialog();
+        }
+
+        private void listarEmpleadosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormEmpleadoListar formEmpleadoListar = new FormEmpleadoListar();
+            formEmpleadoListar.ShowDialog();
+        }
+        private async Task graciasVuelvanProntos()
+        {
+            this.lblGracias.Text = "Gracias!! Vuelva prontosss";
+            await Task.Delay(5000);
+            this.lblGracias.Text = "";
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            if( MessageBox.Show(
+                    "Está seguro que desea salir del minisuper?",
+                    "Salir",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
+
+        private void sumarStockToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormProductoSumarStock formProductoSumarStock = new FormProductoSumarStock();
+            formProductoSumarStock.ShowDialog();
         }
     }
 }
