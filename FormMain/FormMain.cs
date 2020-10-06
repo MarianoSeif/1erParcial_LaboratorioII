@@ -10,14 +10,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Entidades;
 using System.Media;
+using System.IO;
 
 namespace FormMain
 {
     public partial class FormMain : Form
     {
         private bool menuIsActive = false;
-        static System.Windows.Forms.Timer showTimer;
-        static System.Windows.Forms.Timer hideTimer;
+        static Timer showTimer;
+        static Timer hideTimer;
         public FormMain()
         {
             InitializeComponent();

@@ -19,13 +19,11 @@ namespace Entidades
         public Cliente Cliente
         {
             get { return this.cliente; }
-            //get { return this.cliente.Nombre + this.cliente.Apellido; }
         }
 
         public Empleado Empleado
         {
             get { return this.empleado; }
-            //get { return this.empleado.Nombre + this.empleado.Apellido; }
         }
 
         public double Total
@@ -40,11 +38,20 @@ namespace Entidades
             total = 0;
         }
 
+        /// <summary>
+        /// Constructor reutilizando el constructor por defecto
+        /// </summary>
+        /// <param name="cliente"></param>
+        /// <param name="empleado"></param>
         public Compra(Cliente cliente, Empleado empleado) : this()
         {
             this.cliente = cliente;
             this.empleado = empleado;
         }
+        
+        /// <summary>
+        /// Calcula el total de la compra
+        /// </summary>
         public void CalcularTotal()
         {
             foreach (CompraDetalle detalle in detalles)

@@ -4,6 +4,7 @@ using System.Text;
 
 namespace Entidades
 {
+    //CompraDetalle representa cada item de la compra
     public class CompraDetalle
     {
         Producto producto;
@@ -31,6 +32,13 @@ namespace Entidades
             this.precio = precio;
         }
 
+        /// <summary>
+        ///     Sobrcarga de operador que descuenta la cantidad 
+        ///     vendida en la compra de la lista de stock del minisuper
+        /// </summary>
+        /// <param name="listaProductos"></param>
+        /// <param name="detalle"></param>
+        /// <returns></returns>
         public static bool operator -(List<Producto> listaProductos, CompraDetalle detalle)
         {
             foreach (Producto producto in listaProductos)

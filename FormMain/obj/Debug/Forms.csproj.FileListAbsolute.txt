@@ -20,3 +20,5 @@ C:\Users\ms\source\repos\2do_Parcial_Labo_Seif.Mariano_2D_2doCuatri_2020\FormMai
 C:\Users\ms\source\repos\2do_Parcial_Labo_Seif.Mariano_2D_2doCuatri_2020\FormMain\obj\Debug\FormMain.FormProductoSumarStock.resources
 C:\Users\ms\source\repos\2do_Parcial_Labo_Seif.Mariano_2D_2doCuatri_2020\FormMain\bin\Debug\Resources\classiccoin.wav
 C:\Users\ms\source\repos\2do_Parcial_Labo_Seif.Mariano_2D_2doCuatri_2020\FormMain\obj\Debug\FormMain.FormPersonajes.resources
+C:\Users\ms\source\repos\2do_Parcial_Labo_Seif.Mariano_2D_2doCuatri_2020\FormMain\bin\Debug\Resources\Kwik-E-Mart_.png
+C:\Users\ms\source\repos\2do_Parcial_Labo_Seif.Mariano_2D_2doCuatri_2020\FormMain\bin\Debug\Resources\Apu_.png

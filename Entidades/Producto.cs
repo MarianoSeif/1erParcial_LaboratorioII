@@ -40,6 +40,14 @@ namespace Entidades
             this.stock = stock;
         }
 
+        /// <summary>
+        /// Sobrecarga del operador == . Devuelve el indice del producto pasado por parámetro
+        /// en la lista de productos del minisuper.
+        /// -1 si no se encuentra
+        /// </summary>
+        /// <param name="listadoProductos"></param>
+        /// <param name="producto"></param>
+        /// <returns></returns>
         public static int operator ==(List<Producto> listadoProductos, Producto producto)
         {
             for (int i = 0; i < listadoProductos.Count; i++)
@@ -64,6 +72,10 @@ namespace Entidades
             return -1;
         }
 
+        /// <summary>
+        /// Override del método ToString heredado de Object
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return this.descripcion;

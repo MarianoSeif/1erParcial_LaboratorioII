@@ -34,11 +34,19 @@ namespace Entidades
             this.dni = dni;
         }
 
+        /// <summary>
+        /// Devuelve un string con el saludo de la persona
+        /// </summary>
+        /// <returns></returns>
         public virtual string Hola()
         {
             return $"Hola!, mi nombre es {nombre} {apellido}";
         }
 
+        /// <summary>
+        /// Sobreescribo el metodo ToString heredado de Object
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return this.nombre + " " +this.apellido;

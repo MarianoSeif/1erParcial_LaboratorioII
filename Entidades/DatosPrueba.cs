@@ -4,6 +4,7 @@ using System.Text;
 
 namespace Entidades
 {
+    //Datos de prueba para poder testear la aplicación
     public static class DatosPrueba
     {
         public static void CargarUsuarios()

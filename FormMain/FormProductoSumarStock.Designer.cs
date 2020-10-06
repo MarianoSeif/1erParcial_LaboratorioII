@@ -212,7 +212,8 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormProductoSumarStock";
-            this.Text = "FormProductoSumarStock";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Kwik-E-Mart -> Sumar Stock";
             this.Load += new System.EventHandler(this.FormProductoSumarStock_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

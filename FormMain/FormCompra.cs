@@ -28,6 +28,7 @@ namespace FormMain
 
         private void FormCompra_Load(object sender, EventArgs e)
         {
+            //Armo los autocomplete para los campos de datos del cliente
             var nombres = new AutoCompleteStringCollection();
             var apellidos = new AutoCompleteStringCollection();
             var dnis = new AutoCompleteStringCollection();
@@ -38,7 +39,7 @@ namespace FormMain
                 apellidos.Add(cliente.Apellido);
                 dnis.Add(cliente.Dni.ToString());
             }
-
+            //Seteo las fuentes de datos de los componentes
             this.txbNombre.AutoCompleteCustomSource = nombres;
             this.txbApellido.AutoCompleteCustomSource = apellidos;
             this.txbDni.AutoCompleteCustomSource = dnis;
@@ -64,6 +65,12 @@ namespace FormMain
             }
         }
 
+        /// <summary>
+        /// Busca el dni del cliente ingresado a partir de su nombre y apellido
+        /// </summary>
+        /// <param name="nombre"></param>
+        /// <param name="apellido"></param>
+        /// <returns></returns>
         private int BuscarDni(string nombre, string apellido)
         {
             foreach (Persona cliente in Kwik_E_Mart.listadoClientes)
@@ -76,7 +83,12 @@ namespace FormMain
             }
             return -1;
         }
-
+        
+        /// <summary>
+        /// Cuando ingreso el apellido busca el dni y lo carga en el textbox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txbApellido_TextChanged(object sender, EventArgs e)
         {
             if (this.txbDni.Text == String.Empty)
@@ -145,6 +157,12 @@ namespace FormMain
         }
         #endregion
 
+        
+        /// <summary>
+        /// Eventlistener para cuando cambia la columna cantidad del datagrid de productos vendidos
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dtgProductosVendidos_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             string strCantidad = String.Empty;
@@ -184,6 +202,10 @@ namespace FormMain
             }            
         }
 
+        /// <summary>
+        /// Calcula el total de la compra
+        /// </summary>
+        /// <returns></returns>
         private bool CalcularTotal()
         {
             double total = 0;
@@ -208,6 +230,7 @@ namespace FormMain
             this.lblTotalNumero.Text = total.ToString();
             return true;
         }
+
 
         private void btnFinalizarCompra_Click(object sender, EventArgs e)
         {
@@ -246,6 +269,10 @@ namespace FormMain
             }
         }
 
+        /// <summary>
+        /// Comprueba los datos ingresados del cliente
+        /// </summary>
+        /// <returns></returns>
         private bool ComprobarDatosCliente()
         {
             if (Validaciones.StringNoVacio(this.txbNombre.Text) && 
@@ -265,6 +292,13 @@ namespace FormMain
             }
         }
 
+        /// <summary>
+        /// Devuelve el objeto de tipo Cliente que coincide con los datos pasados por parámetros
+        /// </summary>
+        /// <param name="nombre"></param>
+        /// <param name="apellido"></param>
+        /// <param name="dni"></param>
+        /// <returns></returns>
         private Cliente BuscarCliente(string nombre, string apellido, string dni)
         {
             Cliente auxCliente = Kwik_E_Mart.BuscarClientePorDni(dni);

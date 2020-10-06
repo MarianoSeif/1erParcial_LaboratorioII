@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Entidades
 {
-
+    //Clase estática que maneja el negocio
     public static class Kwik_E_Mart
     {
         public static List<Producto> listadoProductos;
@@ -29,6 +29,11 @@ namespace Entidades
             ultimoIdEmpleado = 0;
         }
 
+        /// <summary>
+        /// Devuelve el objeto de tipo Producto cuyo Id se pasó por parámetro
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public static Producto BuscarProductoPorId(int id)
         {
             foreach (Producto item in listadoProductos)
@@ -37,6 +42,12 @@ namespace Entidades
             }
             return null;
         }
+
+        /// <summary>
+        /// Devuelve el objeto de tipo Producto cuyo Id se pasó por parámetro
+        /// </summary>
+        /// <param name="strId"></param>
+        /// <returns></returns>
         public static Producto BuscarProductoPorId(string strId)
         {
             if (int.TryParse(strId, out int id))
@@ -49,6 +60,11 @@ namespace Entidades
             return null;
         }
 
+        /// <summary>
+        /// Devuelve el objeto de tipo Cliente cuyo Dni se pasó por parámetro
+        /// </summary>
+        /// <param name="strDni"></param>
+        /// <returns></returns>
         public static Cliente BuscarClientePorDni(string strDni)
         {
             int.TryParse(strDni, out int dni);
