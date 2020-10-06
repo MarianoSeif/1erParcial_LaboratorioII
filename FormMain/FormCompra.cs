@@ -15,6 +15,7 @@ namespace FormMain
 {
     public partial class FormCompra : Form
     {
+        List<Producto> listaProductosVenta;
         private Compra nuevaCompra;
         public Compra NuevaCompra
         {
@@ -39,12 +40,22 @@ namespace FormMain
                 apellidos.Add(cliente.Apellido);
                 dnis.Add(cliente.Dni.ToString());
             }
+
+            //Cargo los productos disponibles para la venta
+            listaProductosVenta = new List<Producto>();
+            foreach (Producto producto in Kwik_E_Mart.listadoProductos)
+            {
+                if(producto.Stock > 0)
+                {
+                    listaProductosVenta.Add(producto);
+                }
+            }
             //Seteo las fuentes de datos de los componentes
             this.txbNombre.AutoCompleteCustomSource = nombres;
             this.txbApellido.AutoCompleteCustomSource = apellidos;
             this.txbDni.AutoCompleteCustomSource = dnis;
             this.cmbEmpleado.DataSource = Kwik_E_Mart.listadoEmpleados;
-            this.dtgProductos.DataSource = Kwik_E_Mart.listadoProductos;
+            this.dtgProductos.DataSource = listaProductosVenta;
             //DataGrid Productos
             this.dtgProductos.Columns[0].Width = 100;
             this.dtgProductos.Columns[1].Width = 310;
